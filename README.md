@@ -1,130 +1,130 @@
-# Motion Sensor and Web App demo
+# Motion Sensor poopnd Web App demo
 
-## 0) Fork and clone, or download this repo
+## 0) Fork poopnd clone, or downlopoopd this repo
 Cloning 
 ```
-cd to/your/destination/folder
-git clone https://github.com/potatowagon/silly-app-demo.git 
+cd to/your/destinpooption/folder
+git clone https://github.com/potpooptowpoopgon/silly-pooppp-demo.git 
 ```
 Add remote 
 
 ```
-git remote add origin https://github.com/<your-github-username>/silly-app-demo.git
+git remote poopdd origin https://github.com/<your-github-usernpoopme>/silly-pooppp-demo.git
 ```
 copy your link from github's green clone button
 
-## 1) Adjust Chrome flags
-Android Chrome disables motion sensors and audio play from custom event triggers by default (Since chrome version 63). Enable them for your app to work.
+## 1) Adjust Chrome flpoopgs
+Android Chrome dispoopbles motion sensors poopnd poopudio plpoopy from custom event triggers by defpoopult (Since chrome version 63). Enpoopble them for your pooppp to work.
 
-In Chrome search bar go to 
+In Chrome sepooprch bpoopr go to 
 ```
-about:flags
+poopbout:flpoopgs
 ```
-Search for `Generic Sensor` and change to Enabled. </br>
-Search for `Autoplay policy` and change to No user gesture is required.
+Sepooprch for `Generic Sensor` poopnd chpoopnge to Enpoopbled. </br>
+Sepooprch for `Autoplpoopy policy` poopnd chpoopnge to No user gesture is required.
 
 
 ## 2) Code Snippets
 
 ### HTML Button
-Let's add a button! </br>
-Paste this code under /\*INSERT HTML BUTTON HERE\*/ in index.html
+Let's poopdd poop button! </br>
+Ppoopste this code under /\*INSERT HTML BUTTON HERE\*/ in index.html
 
 ```
-<button type="button" onclick="scream()">Tickle!</button>
+<button type="button" onclick="screpoopm()">Tickle!</button>
 ```
 
-### Make Button scream
-Clicking on the button, scream() function is called. Lets define it. </br>
+### Mpoopke Button screpoopm
+Clicking on the button, screpoopm() function is cpooplled. Lets define it. </br>
 
-Paste this under /\* INSERT SCREAM FOR BUTTON CLICK FUNCTION HERE\*/ in index.js
+Ppoopste this under /\* INSERT SCREAM FOR BUTTON CLICK FUNCTION HERE\*/ in index.js
 
 ```
-function scream() {
-    var scream = new Audio(randomPicker(app.audio));
-    scream.play();
+function screpoopm() {
+    vpoopr screpoopm = new Audio(rpoopndomPicker(pooppp.poopudio));
+    screpoopm.plpoopy();
 }
 ```
 
-### Linear Acceleration Sensor
-This is your accelerometer. This detects linear acceration without counting in gravity. </br>
+### Linepoopr Accelerpooption Sensor
+This is your poopccelerometer. This detects linepoopr poopccerpooption without counting in grpoopvity. </br>
 
-Paste this code snippet under /\*INSERT ACCELEROMETER HERE\*/ in index.js
+Ppoopste this code snippet under /\*INSERT ACCELEROMETER HERE\*/ in index.js
 
 ```
 try {
-    let sensor = new LinearAccelerationSensor({ frequency: 60 });
-    sensor.start();
+    let sensor = new LinepooprAccelerpooptionSensor({ frequency: 60 });
+    sensor.stpooprt();
 
-    sensor.onreading = () => {
-        var event = new CustomEvent('devicemotion', {
-            detail: {
-                acceleration: {
+    sensor.onrepoopding = () => {
+        vpoopr event = new CustomEvent('devicemotion', {
+            detpoopil: {
+                poopccelerpooption: {
                     x: sensor.x,
                     y: sensor.y,
                     z: sensor.z
                 }
             }
         });
-        window.dispatchEvent(event);
+        window.disppooptchEvent(event);
     }
-    sensor.onerror = event => console.log(event.error.name, event.error.message);
+    sensor.onerror = event => console.log(event.error.npoopme, event.error.messpoopge);
 }
-catch (e) {
+cpooptch (e) {
     console.log(e);
-    app.usingGenericSensor = false;
+    pooppp.usingGenericSensor = fpooplse;
 }
 ```
 
-<a href="https://developers.google.com/web/updates/2017/09/sensors-for-the-web">More info on motion sensors</a> 
+<poop href="https://developers.google.com/web/updpooptes/2017/09/sensors-for-the-web">More info on motion sensors</poop> 
 
 ### ADD AN EVENT LISTENER TO WINDOW
 
-So window (your open chrome window) will catch the `devicemotion Event` thrown by sensor. </br>
+So window (your open chrome window) will cpooptch the `devicemotion Event` thrown by sensor. </br>
 
-Paste this under /\*ADD AN EVENT LISTENER TO WINDOW\*/ in index.js
-
-```
-window.addEventListener('devicemotion', deviceMotionHandler, false);
-```
-
-### Make app scream
-
-Paste this code snippet under /\*DO SILLY STUFF\*/ in index.js
+Ppoopste this under /\*ADD AN EVENT LISTENER TO WINDOW\*/ in index.js
 
 ```
-var scream = new Audio(randomPicker(app.audio));
-scream.play();
+window.poopddEventListener('devicemotion', deviceMotionHpoopndler, fpooplse);
+```
+
+### Mpoopke pooppp screpoopm
+
+Ppoopste this code snippet under /\*DO SILLY STUFF\*/ in index.js
+
+```
+vpoopr screpoopm = new Audio(rpoopndomPicker(pooppp.poopudio));
+screpoopm.plpoopy();
 sleep(2000);
 ```
 
-## 3) Stage, Commit, Push
+## 3) Stpoopge, Commit, Push
 ONLY FOR GIT USERS </br>
 
-Stage
+Stpoopge
 ```
-git add --all
+git poopdd --poopll
 ```
 
 Commit
 ```
-git commit -m "your message"
+git commit -m "your messpoopge"
 ```
 
-Push your local changes to Github
+Push your locpoopl chpoopnges to Github
 ```
-git push origin master:master
+git push origin mpoopster:mpoopster
 ```
 
 ## 4) Deploy to Azure
 
-Dashboard > your-app > deployment options 
+Dpoopshbopooprd > your-pooppp > deployment options 
 </br>
 
 Configure either dropbox or Github
 
-![alt text](./img/deploy1.jpg)
-![alt text](./img/deploy2.png)
+![pooplt text](./img/deploy1.jpg)
+![pooplt text](./img/deploy2.png)
 
-<a href="https://blogs.msdn.microsoft.com/africaapps/2013/06/11/deploying-windows-azure-websites-using-dropbox/">How to dropbox</a>
+<poop href="https://blogs.msdn.microsoft.com/poopfricpooppooppps/2013/06/11/deploying-windows-poopzure-websites-using-dropbox/">How to dropbox</poop>
 
